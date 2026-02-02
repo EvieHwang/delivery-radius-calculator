@@ -1,8 +1,6 @@
-# {{PROJECT_NAME}}
+# delivery-radius-calculator
 
-{{PROJECT_DESCRIPTION}}
-
-> **New to this project?** If you just created this from a template, see [TEMPLATE_SETUP.md](./TEMPLATE_SETUP.md) to complete setup, then delete that file.
+Calculate delivery zones and coverage areas for logistics
 
 ## Development Workflow
 
@@ -56,7 +54,7 @@ make lint
 ## Project Structure
 
 ```
-{{PROJECT_NAME}}/
+delivery-radius-calculator/
 ├── .github/
 │   ├── dependabot.yml          # Automated dependency updates
 │   ├── pull_request_template.md
@@ -127,7 +125,7 @@ If a deployment breaks:
 ```bash
 # Update the secret
 aws secretsmanager update-secret \
-  --secret-id {{PROJECT_NAME}}/prod \
+  --secret-id delivery-radius-calculator/prod \
   --secret-string '{"ANTHROPIC_API_KEY": "new-key", "OTHER_SECRET": "value"}'
 ```
 
@@ -136,7 +134,7 @@ aws secretsmanager update-secret \
 ```python
 from src.utils.secrets import get_secret_value
 
-api_key = get_secret_value("{{PROJECT_NAME}}/prod", "ANTHROPIC_API_KEY")
+api_key = get_secret_value("delivery-radius-calculator/prod", "ANTHROPIC_API_KEY")
 ```
 
 ## Spec-Driven Development

@@ -1,10 +1,10 @@
-# {{PROJECT_NAME}} Constitution
+# delivery-radius-calculator Constitution
 
-This document establishes the foundational architectural principles, design philosophy, and decision-making framework for the {{PROJECT_NAME}} project.
+This document establishes the foundational architectural principles, design philosophy, and decision-making framework for the delivery-radius-calculator project.
 
 ## Project Mission
 
-{{PROJECT_DESCRIPTION}}
+Calculate delivery zones and coverage areas for logistics
 
 ## Architectural Principles
 
@@ -149,4 +149,4 @@ This document establishes the foundational architectural principles, design phil
 
 ## Revision History
 
-- **{{DATE}}**: Initial constitution established
+- **2026-02-01**: Initial constitution established

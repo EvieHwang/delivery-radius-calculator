@@ -1,7 +1,7 @@
 [project]
-name = "{{PROJECT_NAME}}"
+name = "delivery-radius-calculator"
 version = "0.1.0"
-description = "{{PROJECT_DESCRIPTION}}"
+description = "Calculate delivery zones and coverage areas for logistics"
 requires-python = ">=3.12"
 
 [tool.ruff]
