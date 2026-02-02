@@ -5,7 +5,8 @@ This module provides the main entry point for AWS Lambda invocations.
 """
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
+
 from src.osrm_client import get_drive_times_batch
 
 
@@ -70,7 +71,7 @@ def health_check() -> dict:
         "body": json.dumps(
             {
                 "status": "healthy",
-                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "timestamp": datetime.now(UTC).isoformat(),
                 "service": "delivery-radius-calculator",
             }
         ),

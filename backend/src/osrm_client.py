@@ -5,11 +5,10 @@ Uses the public OSRM demo server (router.project-osrm.org) for routing.
 For production use, consider self-hosting OSRM.
 """
 
-import urllib.request
-import urllib.error
 import json
-from typing import Optional
 import time
+import urllib.error
+import urllib.request
 
 # OSRM public demo server
 OSRM_BASE_URL = "https://router.project-osrm.org"
@@ -26,7 +25,7 @@ def get_drive_time(
     source_lng: float,
     dest_lat: float,
     dest_lng: float
-) -> Optional[float]:
+) -> float | None:
     """
     Get the drive time between two points using OSRM.
 
