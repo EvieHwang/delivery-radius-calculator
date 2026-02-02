@@ -100,7 +100,3 @@ delivery-radius-calculator/
 - Drive time checks only for edge cases (80-120% band)
 - Session caching reduces redundant API calls
 - No always-on compute resources
-
-## License
-
-MIT
