@@ -90,6 +90,7 @@ export function calculateRadius(
       distanceMiles: distance,
       driveTimeMinutes,
       classification,
+      originalClassification: classification,  // Store for reverting overrides
       isOverridden: false
     });
 
@@ -149,7 +150,8 @@ export function updateWithDriveTimes(
       return {
         ...result,
         driveTimeMinutes: driveTime,
-        classification: result.isOverridden ? result.classification : newClassification
+        classification: result.isOverridden ? result.classification : newClassification,
+        originalClassification: newClassification  // Update original with drive-time-based classification
       };
     }
 
@@ -176,10 +178,7 @@ export function toggleOverride(
     if (result.isOverridden) {
       // Remove override - restore original classification
       newIsOverridden = false;
-      newClassification = result.driveTimeMinutes !== null
-        ? (result.distanceMiles < result.distanceMiles * 0.8 ? 'in_distance' :
-           (result.driveTimeMinutes <= 25 ? 'in_drive_time' : 'out_drive_time'))
-        : (result.distanceMiles < result.distanceMiles * 0.8 ? 'in_distance' : 'out_drive_time');
+      newClassification = result.originalClassification;
     } else {
       // Add override - flip the inclusion status
       newIsOverridden = true;

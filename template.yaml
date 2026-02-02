@@ -172,6 +172,40 @@ Resources:
             S3OriginConfig:
               OriginAccessIdentity: ""
             OriginAccessControlId: !Ref CloudFrontOAC
+          - Id: ApiOrigin
+            DomainName: !Sub "${ApiGateway}.execute-api.us-west-2.amazonaws.com"
+            OriginPath: !Sub "/${Environment}"
+            CustomOriginConfig:
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols:
+                - TLSv1.2
+        CacheBehaviors:
+          - PathPattern: /api/*
+            TargetOriginId: ApiOrigin
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+              - PUT
+              - POST
+              - PATCH
+              - DELETE
+            CachedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            ForwardedValues:
+              QueryString: true
+              Headers:
+                - Authorization
+                - Content-Type
+              Cookies:
+                Forward: none
+            DefaultTTL: 0
+            MinTTL: 0
+            MaxTTL: 0
         DefaultCacheBehavior:
           TargetOriginId: S3Origin
           ViewerProtocolPolicy: redirect-to-https

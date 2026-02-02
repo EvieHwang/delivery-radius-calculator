@@ -34,6 +34,7 @@ export interface QueryResult {
   distanceMiles: number;
   driveTimeMinutes: number | null;  // null if not checked (inside 80% or beyond 120%)
   classification: ClassificationStatus;
+  originalClassification: ClassificationStatus;  // Stored for reverting overrides
   isOverridden: boolean;
 }
 
