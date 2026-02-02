@@ -59,6 +59,7 @@ jobs:
             --capabilities CAPABILITY_IAM \
             --no-confirm-changeset \
             --no-fail-on-empty-changeset \
+            --resolve-s3 \
             --parameter-overrides Environment=prod DomainName=$DOMAIN_NAME
 
       - name: Get Stack Outputs
