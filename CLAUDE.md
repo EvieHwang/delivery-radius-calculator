@@ -89,6 +89,21 @@ chmod *
 - **Create PRs**: Open pull requests for all changes targeting main
 - **Do not merge PRs**: Leave PRs open for human review unless explicitly instructed
 
+### PR Workflow (IMPORTANT)
+After completing any code changes, ALWAYS follow this workflow:
+
+1. **Create a branch** from `main` for any new work
+2. **Make commits** to the feature branch
+3. **Create a PR** using `gh pr create`
+4. **Wait for user to merge** the PR before considering the work complete
+5. **After PR is merged**: Switch back to `main` and pull latest before any new work:
+   ```bash
+   git checkout main && git pull origin main
+   ```
+6. **For subsequent fixes**: Create a NEW branch from the updated `main`, not from the old feature branch
+
+**Never continue committing to a feature branch after its PR has been merged** - those commits will be orphaned and won't reach `main`.
+
 ### Development and Deployment
 - **Run deployments**: Execute deployment scripts and commands (AWS SAM, etc.)
 - **Build and test**: Run build processes, test suites, and validation scripts
