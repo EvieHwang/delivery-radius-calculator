@@ -41,7 +41,7 @@ def lambda_handler(event: dict, context) -> dict:
         }
 
     # Route requests
-    if path == "/health" or path == "/":
+    if path in ("/health", "/", "/api/health"):
         return health_check()
 
     if path == "/api/drive-times" and http_method == "POST":
